@@ -1,5 +1,9 @@
 package com.example.imperium.finalyearproject;
 
+//
+// Author: Jason Power
+//
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
