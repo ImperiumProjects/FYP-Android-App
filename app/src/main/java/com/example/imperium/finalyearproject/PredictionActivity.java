@@ -42,6 +42,7 @@ public class PredictionActivity extends AppCompatActivity {
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             try {
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+                System.out.println(in);
             } catch (IOException e) {
                 System.out.println(e);
             } finally {
@@ -52,6 +53,9 @@ public class PredictionActivity extends AppCompatActivity {
         }
 
         makePrediction();
+
+
+        //System.out.println();
     }
 
     private void makePrediction(){

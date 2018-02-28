@@ -16,23 +16,29 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".PredictionActivity"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AboutActivity"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".WeatherActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WeatherActivity"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity android:name=".LaunchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
