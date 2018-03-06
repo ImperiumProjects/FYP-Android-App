@@ -13,6 +13,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="64dp"
+        android:fontFamily="@font/roboto_thin"
         android:text="Weather Details"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="64dp"
+        android:fontFamily="@font/roboto_thin"
         android:text="River Level"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,6 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto_thin"
         android:text="Temperature"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,6 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto_thin"
         android:text="Tidal Level"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,6 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto_thin"
         android:text="Rainfall"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,6 +76,7 @@
         android:layout_marginTop="64dp"
         android:text="0"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleText" />
 
@@ -82,6 +88,7 @@
         android:layout_marginTop="16dp"
         android:text="0"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/riverData" />
 
@@ -93,6 +100,7 @@
         android:layout_marginTop="16dp"
         android:text="0"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/temperatureData" />
 
@@ -104,6 +112,7 @@
         android:layout_marginTop="16dp"
         android:text="0"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tidalData" />
 </android.support.constraint.ConstraintLayout>
