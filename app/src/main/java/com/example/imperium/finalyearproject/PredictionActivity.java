@@ -1,9 +1,12 @@
 package com.example.imperium.finalyearproject;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Config;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -21,12 +24,14 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
 import java.util.ArrayList;
 
 public class PredictionActivity extends AppCompatActivity {
 
     private TextView predictionPercentage;
+    private TextView colourCodeText;
     private ArrayList<String> students;
     private JSONArray result;
 
@@ -36,29 +41,48 @@ public class PredictionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_prediction);
 
         predictionPercentage = (TextView) findViewById(R.id.predictionPercentage);
+        colourCodeText = (TextView) findViewById(R.id.colourCodeText);
 
-        try {
+
+        new JSONAsyncTask().execute();
+        /*try {
+            Log.d( "HTTP","Making http request");
             URL url = new URL("http://connect.bakguicraft.com:5000/prediction");
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             try {
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
                 System.out.println(in);
+                Log.d( "HTTP",in.toString());
             } catch (IOException e) {
                 System.out.println(e);
             } finally {
                 urlConnection.disconnect();
             }
         } catch (Exception e){
+            Log.d( "HTTP",e.toString());
             System.out.println(e);
-        }
+        }*/
 
-        makePrediction();
+        //makePrediction();
 
 
         //System.out.println();
+
+        int num = Integer.parseInt((String)predictionPercentage.getText());
+        if(num < 30){
+            colourCodeText.setTextColor(Color.parseColor("#06840a"));
+            colourCodeText.setText("Green ");
+        } else if (num >= 30 & num < 80){
+            colourCodeText.setTextColor(Color.parseColor("#edb10e"));
+            colourCodeText.setText("Amber ");
+        }
+        else{
+            colourCodeText.setTextColor(Color.parseColor("#c90c0c"));
+            colourCodeText.setText("Red ");
+        }
     }
 
-    private void makePrediction(){
+    /*private void makePrediction(){
         StringRequest stringRequest = new StringRequest("http://connect.bakguicraft.com:5000/database_query.php",
                 new Response.Listener<String>() {
                     @Override
@@ -81,5 +105,64 @@ public class PredictionActivity extends AppCompatActivity {
                 });
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
+    }*/
+
+
+    class JSONAsyncTask extends AsyncTask<String, Void, Boolean> {
+
+
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        protected Boolean doInBackground(String... urls) {
+            try {
+                Log.d("HTTP", "Making http request");
+                URL url = new URL("http://connect.bakguicraft.com:5000/prediction");
+                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                try {
+                    InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+                    Log.d("HTTP", urlConnection.getResponseMessage());
+                } catch (IOException e) {
+                    System.out.println(e);
+                } finally {
+                    urlConnection.disconnect();
+                }
+                return true;
+
+            } catch (Exception e) {
+                Log.d("HTTP", e.toString());
+                System.out.println(e);
+            }
+
+            /*try {
+                Log.d("HTTP", "Making php request");
+                URL url = new URL("http://connect.bakguicraft.com:5000/php_python");
+                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                try {
+                    InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+                    Log.d("HTTP", urlConnection.getResponseMessage());
+                    while(in.available() > 0){
+                        char c = (char)in.read();
+                        Log.d("OUTPUT", "Char: " + c);
+                    }
+                } catch (IOException e) {
+                    System.out.println(e);
+                } finally {
+                    urlConnection.disconnect();
+                }
+                return true;
+
+
+            } catch (Exception e) {
+                Log.d("HTTP", e.toString());
+                System.out.println(e);
+            }*/
+            return false;
+        }
+
+        protected void onPostExecute(Boolean result) {
+            super.onPostExecute(result);
+        }
     }
 }
