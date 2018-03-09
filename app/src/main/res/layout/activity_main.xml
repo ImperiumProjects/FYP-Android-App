@@ -13,7 +13,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="64dp"
         android:fontFamily="@font/roboto"
-        android:text="Final \nYear \nProject"
+        android:text="Final \nYear \nProject "
         android:textSize="30sp"
         android:textStyle="bold|italic"
         app:layout_constraintStart_toStartOf="parent"
