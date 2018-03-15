@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Config;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -32,6 +33,7 @@ public class PredictionActivity extends AppCompatActivity {
 
     private TextView predictionPercentage;
     private TextView colourCodeText;
+    private CheckBox damSimulationCheckbox;
     private ArrayList<String> students;
     private JSONArray result;
 
@@ -42,6 +44,7 @@ public class PredictionActivity extends AppCompatActivity {
 
         predictionPercentage = (TextView) findViewById(R.id.predictionPercentage);
         colourCodeText = (TextView) findViewById(R.id.colourCodeText);
+        damSimulationCheckbox = (CheckBox) findViewById(R.id.damSimulationCheckBox);
 
         new JSONAsyncTask().execute();
         int num = Integer.parseInt((String)predictionPercentage.getText());
@@ -58,8 +61,13 @@ public class PredictionActivity extends AppCompatActivity {
         }
     }
 
-    public void updatePrediction() {
-        new JSONAsyncTask().execute();
+    public void updatePrediction(View view) {
+        if(damSimulationCheckbox.isChecked()){
+            new JSONAsyncTask().execute();
+        }
+        else{
+            new JSONAsyncTask().execute();
+        }
     }
 
     class JSONAsyncTask extends AsyncTask<String, Void, Boolean> {
