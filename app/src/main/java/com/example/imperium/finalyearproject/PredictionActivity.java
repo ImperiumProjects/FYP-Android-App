@@ -34,7 +34,6 @@ public class PredictionActivity extends AppCompatActivity {
     private TextView predictionPercentage;
     private TextView colourCodeText;
     private CheckBox damSimulationCheckbox;
-    private ArrayList<String> students;
     private JSONArray result;
 
     @Override
@@ -79,12 +78,12 @@ public class PredictionActivity extends AppCompatActivity {
 
         protected Boolean doInBackground(String... urls) {
             try {
-                Log.d("HTTP", "Making http request");
+                //Log.d("HTTP", "Making http request");
                 URL url = new URL("http://connect.bakguicraft.com:5000/prediction");
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
                 try {
                     InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-                    Log.d("HTTP", urlConnection.getResponseMessage());
+                    //Log.d("HTTP", urlConnection.getResponseMessage());
                 } catch (IOException e) {
                     System.out.println(e);
                 } finally {
@@ -93,7 +92,7 @@ public class PredictionActivity extends AppCompatActivity {
                 return true;
 
             } catch (Exception e) {
-                Log.d("HTTP", e.toString());
+                //Log.d("HTTP", e.toString());
                 System.out.println(e);
             }
 
