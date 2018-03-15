@@ -44,7 +44,6 @@ public class PredictionActivity extends AppCompatActivity {
         colourCodeText = (TextView) findViewById(R.id.colourCodeText);
 
         new JSONAsyncTask().execute();
-
         int num = Integer.parseInt((String)predictionPercentage.getText());
         if(num < 30){
             colourCodeText.setTextColor(Color.parseColor("#06840a"));
