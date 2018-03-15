@@ -43,30 +43,7 @@ public class PredictionActivity extends AppCompatActivity {
         predictionPercentage = (TextView) findViewById(R.id.predictionPercentage);
         colourCodeText = (TextView) findViewById(R.id.colourCodeText);
 
-
         new JSONAsyncTask().execute();
-        /*try {
-            Log.d( "HTTP","Making http request");
-            URL url = new URL("http://connect.bakguicraft.com:5000/prediction");
-            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-            try {
-                InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-                System.out.println(in);
-                Log.d( "HTTP",in.toString());
-            } catch (IOException e) {
-                System.out.println(e);
-            } finally {
-                urlConnection.disconnect();
-            }
-        } catch (Exception e){
-            Log.d( "HTTP",e.toString());
-            System.out.println(e);
-        }*/
-
-        //makePrediction();
-
-
-        //System.out.println();
 
         int num = Integer.parseInt((String)predictionPercentage.getText());
         if(num < 30){
@@ -82,31 +59,9 @@ public class PredictionActivity extends AppCompatActivity {
         }
     }
 
-    /*private void makePrediction(){
-        StringRequest stringRequest = new StringRequest("http://connect.bakguicraft.com:5000/database_query.php",
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        JSONObject j = null;
-                        try {
-                            j = new JSONObject(response);
-                            result = j.getJSONArray("results");
-                            System.out.println(result);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                    }
-                });
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-    }*/
-
+    public void updatePrediction() {
+        new JSONAsyncTask().execute();
+    }
 
     class JSONAsyncTask extends AsyncTask<String, Void, Boolean> {
 
