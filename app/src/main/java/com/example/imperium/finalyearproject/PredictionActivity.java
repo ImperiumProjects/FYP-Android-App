@@ -53,8 +53,10 @@ public class PredictionActivity extends AppCompatActivity {
         protected Boolean doInBackground(String... urls) {
             try {
                 //Log.d("HTTP", "Making http request");
-                URL url = new URL("http://connect.bakguicraft.com:5000/test");
+                URL url = new URL("http://connect.bakguicraft.com/test");
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                int code = urlConnection.getResponseCode();
+                System.out.println(code);
                 try {
                     predictionResult = readStream(urlConnection.getInputStream());
                     predictionResult = predictionResult.replaceAll("[^-?0-9]+", " ");
