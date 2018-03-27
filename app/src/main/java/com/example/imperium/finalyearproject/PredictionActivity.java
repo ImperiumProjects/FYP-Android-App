@@ -34,7 +34,7 @@ public class PredictionActivity extends AppCompatActivity {
         new JSONAsyncTask().execute();
     }
 
-    public void updatePrediction(View view) {
+    public void reloadPrediction(View view) {
         if(damSimulationCheckbox.isChecked()){
             new JSONAsyncTask().execute();
         }

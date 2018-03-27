@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.FrameLayout;
 
 public class BottomNav extends AppCompatActivity {
@@ -57,6 +58,10 @@ public class BottomNav extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void updatePrediction(View v) {
+        predictionFragment.makePrediction(v);
     }
 
     private void setFragment(Fragment fragment) {
