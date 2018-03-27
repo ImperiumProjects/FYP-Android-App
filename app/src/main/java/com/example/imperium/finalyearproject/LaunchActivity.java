@@ -15,7 +15,7 @@ public class LaunchActivity extends AppCompatActivity {
     }
 
     public void viewMain(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, BottomNav.class);
         startActivity(intent);
     }
 }

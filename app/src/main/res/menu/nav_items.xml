@@ -3,12 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/navHome"
         android:icon="@drawable/ic_home"
         android:title="@string/nav_home" />
     <item
+        android:id="@+id/navPrediction"
         android:icon="@drawable/ic_action_name"
         android:title="@string/nav_prediction" />
     <item
+        android:id="@+id/navAdvanced"
         android:icon="@drawable/ic_timeline"
         android:title="@string/nav_advanced" />
 </menu>
