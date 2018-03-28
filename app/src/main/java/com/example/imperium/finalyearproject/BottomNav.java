@@ -39,17 +39,14 @@ public class BottomNav extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.navHome :
-                        mMainNav.setItemBackgroundResource(R.color.colorPrimary);
                         setFragment(homeFragment);
                         return true;
 
                     case R.id.navPrediction :
-                        mMainNav.setItemBackgroundResource(R.color.colorAccent);
                         setFragment(predictionFragment);
                         return true;
 
                     case R.id.navAdvanced :
-                        mMainNav.setItemBackgroundResource(R.color.colorPrimaryDark);
                         setFragment(advancedFragment);
                         return true;
 
