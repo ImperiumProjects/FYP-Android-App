@@ -1,6 +1,8 @@
 package com.example.imperium.finalyearproject;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -38,40 +40,22 @@ public class HomeFragment extends Fragment {
         disclaimerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showPopup(mView);
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+                builder.setCancelable(true);
+                builder.setTitle("Disclaimer");
+                builder.setMessage(R.string.disclaimerText);
+
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                });
+                builder.show();
             }
         });
         // Inflate the layout for this fragment
         return view;
-    }
-
-    public void showPopup(View anchorView) {
-
-        View popupView = getLayoutInflater().inflate(R.layout.popup_layout, null);
-
-        PopupWindow popupWindow = new PopupWindow(popupView,
-                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-
-        // Example: If you have a TextView inside `popup_layout.xml`
-        TextView tv = (TextView) popupView.findViewById(R.id.tv);
-
-        // Initialize more widgets from `popup_layout.xml`
-
-        // If the PopupWindow should be focusable
-        popupWindow.setFocusable(true);
-
-        // If you need the PopupWindow to dismiss when when touched outside
-        popupWindow.setBackgroundDrawable(new ColorDrawable());
-
-        int location[] = new int[2];
-
-        // Get the View's(the one that was clicked in the Fragment) location
-        anchorView.getLocationOnScreen(location);
-
-        // Using location, the PopupWindow will be displayed right under anchorView
-        //popupWindow.showAtLocation(anchorView, Gravity.NO_GRAVITY,
-                //location[0], location[1] + anchorView.getHeight());
-        popupWindow.showAtLocation(anchorView, Gravity.CENTER, 0, 0);
     }
 
 }

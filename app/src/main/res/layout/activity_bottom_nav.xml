@@ -7,6 +7,18 @@
     android:backgroundTint="@color/colorMainYellow"
     tools:context="com.example.imperium.finalyearproject.BottomNav">
 
+    <ImageView
+        android:id="@+id/background_one"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:adjustViewBounds="false"
+        android:scaleType="centerCrop"
+        android:src="@drawable/poly_image_lighter"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="-33dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/mainNav"
         android:layout_width="match_parent"

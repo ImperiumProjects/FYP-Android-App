@@ -6,8 +6,6 @@
     <string name="nav_home">Home</string>
     <string name="nav_prediction">Prediction</string>
     <string name="nav_advanced">Advanced</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="viewDisclaimer">View Disclaimer</string>
+    <string name="disclaimerText">The information presented by Leeway should not be used as a definitive estimation or prediction of flooding in the Cork City and surrounding area. Predictions are an approximation based on a variety of data to the best of our ability and should be used in unison with other sources of river level information and forecasts. All river level and flooding predictions are based around the river sensor located on the river at Sunday’s Well, Cork.</string>
 </resources>
