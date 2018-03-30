@@ -1,7 +1,6 @@
-package com.example.imperium.finalyearproject;
+package com.leeway.imperium.finalyearproject;
 
 
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;

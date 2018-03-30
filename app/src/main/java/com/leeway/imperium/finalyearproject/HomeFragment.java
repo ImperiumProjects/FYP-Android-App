@@ -1,18 +1,14 @@
-package com.example.imperium.finalyearproject;
+package com.leeway.imperium.finalyearproject;
 
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.PopupWindow;
-import android.widget.TextView;
 
 
 /**

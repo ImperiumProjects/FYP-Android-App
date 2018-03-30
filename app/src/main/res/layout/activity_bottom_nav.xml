@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="@color/colorMainYellow"
-    tools:context="com.example.imperium.finalyearproject.BottomNav">
+    tools:context="com.leeway.imperium.finalyearproject.BottomNav">
 
     <ImageView
         android:id="@+id/background_one"

@@ -1,4 +1,4 @@
-package com.example.imperium.finalyearproject;
+package com.leeway.imperium.finalyearproject;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

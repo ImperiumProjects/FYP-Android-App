@@ -1,6 +1,5 @@
-package com.example.imperium.finalyearproject;
+package com.leeway.imperium.finalyearproject;
 
-import android.gesture.Prediction;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;

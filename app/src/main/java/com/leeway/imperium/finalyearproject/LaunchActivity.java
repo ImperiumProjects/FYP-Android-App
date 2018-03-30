@@ -1,4 +1,4 @@
-package com.example.imperium.finalyearproject;
+package com.leeway.imperium.finalyearproject;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
