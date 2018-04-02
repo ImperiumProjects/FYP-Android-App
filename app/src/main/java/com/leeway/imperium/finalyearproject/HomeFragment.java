@@ -5,10 +5,14 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 
 /**
@@ -17,6 +21,7 @@ import android.widget.Button;
 public class HomeFragment extends Fragment {
 
     private Button disclaimerButton;
+    private TextView textBody;
 
     protected View mView;
 
@@ -31,6 +36,9 @@ public class HomeFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         this.mView = view;
+
+        textBody = (TextView) mView.findViewById(R.id.textBody);
+        textBody.setMovementMethod(new ScrollingMovementMethod());
 
         disclaimerButton = (Button) mView.findViewById(R.id.disclaimerButton);
         disclaimerButton.setOnClickListener(new View.OnClickListener() {

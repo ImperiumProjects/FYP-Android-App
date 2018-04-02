@@ -33,9 +33,9 @@ public class AdvancedFragment extends Fragment {
     private TextView oneMonthLevel;
 
     private String results;
+    private String[] parts;
 
     protected View mView;
-
 
     public AdvancedFragment() {
         // Required empty public constructor
@@ -79,9 +79,12 @@ public class AdvancedFragment extends Fragment {
                 try {
                     results = readStream(urlConnection.getInputStream());
                     Log.v("OUTPUT", results);
-                    //predictionResult = predictionResult.replaceAll("[^-?0-9]+", " ");
-                    //predictionResult = predictionResult.replaceAll("\\s+","");
+                    results = results.replaceAll("[^-?0-9]+", " ");
+                    Log.v("OUTPUT", results);
+                    parts = results.split(" ");
+                    //results = results.replaceAll("\\s+","");
                     //Log.v("OUTPUT", predictionResult);
+                    Log.v("OUTPUT", parts[2]);
                 } catch (IOException e) {
                     System.out.println(e);
                 } finally {
@@ -97,6 +100,13 @@ public class AdvancedFragment extends Fragment {
 
         protected void onPostExecute(Boolean result) {
             super.onPostExecute(result);
+            riverLevel.setText(parts[1] + "." + parts[2] + "m");
+            tempLevel.setText(parts[3] + " C");
+            tidalLevel.setText(parts[4] + "." + parts[5] + "m");
+            rainLevel.setText(parts[6]);
+            sevenDayLevel.setText(parts[7] + "%");
+            twoWeekLevel.setText(parts[8] + "%");
+            oneMonthLevel.setText(parts[9] + "%");
         }
     }
 

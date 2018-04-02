@@ -94,7 +94,9 @@ public class PredictionFragment extends Fragment implements View.OnClickListener
                 System.out.println(code);
                 try {
                     predictionResult = readStream(urlConnection.getInputStream());
+                    Log.v("OUTPUT", predictionResult);
                     predictionResult = predictionResult.replaceAll("[^-?0-9]+", " ");
+                    Log.v("OUTPUT", predictionResult);
                     predictionResult = predictionResult.replaceAll("\\s+","");
                     Log.v("OUTPUT", predictionResult);
                 } catch (IOException e) {
@@ -125,6 +127,7 @@ public class PredictionFragment extends Fragment implements View.OnClickListener
                 colourCodeText.setTextColor(Color.parseColor("#c90c0c"));
                 colourCodeText.setText("Red ");
             }
+            predictionPercentage.setText(predictionResult + "%");
         }
     }
 
