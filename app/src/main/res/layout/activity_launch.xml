@@ -70,6 +70,7 @@
         android:fontFamily="@font/roboto_thin"
         android:onClick="viewMain"
         android:text="Continue"
+        android:textColor="@color/colorWhite"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

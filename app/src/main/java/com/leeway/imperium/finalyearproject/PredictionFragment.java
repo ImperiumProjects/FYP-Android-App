@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -19,6 +20,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -31,6 +33,8 @@ public class PredictionFragment extends Fragment implements View.OnClickListener
     private CheckBox damSimulationCheckbox;
     private String predictionResult;
     private Button updateButton;
+    private String tempNumber;
+    private ProgressBar spinner;
 
     protected View mView;
 
@@ -53,6 +57,10 @@ public class PredictionFragment extends Fragment implements View.OnClickListener
         damSimulationCheckbox = (CheckBox) mView.findViewById(R.id.damSimulationCheckBox);
         updateButton = (Button) mView.findViewById(R.id.predictButton);
 
+        spinner = (ProgressBar) mView.findViewById(R.id.loadingBar);
+        predictionPercentage.setVisibility(View.GONE);
+        spinner.setVisibility(View.VISIBLE);
+
         new JSONAsyncTask().execute();
 
         updateButton.setOnClickListener(this);
@@ -70,10 +78,31 @@ public class PredictionFragment extends Fragment implements View.OnClickListener
     }
 
     public void makePrediction(View v) {
+
         if(damSimulationCheckbox.isChecked()){
-            new JSONAsyncTask().execute();
+            predictionPercentage.setVisibility(View.GONE);
+            spinner.setVisibility(View.VISIBLE);
+            tempNumber = predictionResult;
+            int temp = 0;
+            temp = Integer.parseInt(tempNumber);
+            temp += 9;
+            tempNumber = Integer.toString(temp);
+
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e){
+                System.out.println(e);
+            }
+            predictionPercentage.setVisibility(View.VISIBLE);
+            spinner.setVisibility(View.GONE);
+
+            predictionPercentage.setText(tempNumber + "%");
+            predictionPercentage.setTextColor(Color.parseColor("#FFC565"));
         }
         else{
+            predictionPercentage.setTextColor(Color.parseColor("#808080"));
+            predictionPercentage.setVisibility(View.GONE);
+            spinner.setVisibility(View.VISIBLE);
             new JSONAsyncTask().execute();
         }
     }
@@ -114,6 +143,13 @@ public class PredictionFragment extends Fragment implements View.OnClickListener
 
         protected void onPostExecute(Boolean result) {
             super.onPostExecute(result);
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e){
+                System.out.println(e);
+            }
+            predictionPercentage.setVisibility(View.VISIBLE);
+            spinner.setVisibility(View.GONE);
             predictionPercentage.setText(predictionResult);
             int num = Integer.parseInt((String)predictionPercentage.getText());
             if(num < 30){
@@ -127,7 +163,11 @@ public class PredictionFragment extends Fragment implements View.OnClickListener
                 colourCodeText.setTextColor(Color.parseColor("#c90c0c"));
                 colourCodeText.setText("Red ");
             }
+            tempNumber = predictionResult;
             predictionPercentage.setText(predictionResult + "%");
+            if(damSimulationCheckbox.isChecked()){
+                predictionPercentage.setTextColor(Color.parseColor("#FFC565"));
+            }
         }
     }
 

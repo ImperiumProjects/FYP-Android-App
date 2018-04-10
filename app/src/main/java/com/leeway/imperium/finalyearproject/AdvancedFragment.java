@@ -27,7 +27,6 @@ public class AdvancedFragment extends Fragment {
     private TextView riverLevel;
     private TextView tempLevel;
     private TextView tidalLevel;
-    private TextView rainLevel;
     private TextView sevenDayLevel;
     private TextView twoWeekLevel;
     private TextView oneMonthLevel;
@@ -52,7 +51,6 @@ public class AdvancedFragment extends Fragment {
         riverLevel = (TextView) mView.findViewById(R.id.riverData);
         tempLevel = (TextView) mView.findViewById(R.id.temperatureData);
         tidalLevel = (TextView) mView.findViewById(R.id.tidalData);
-        rainLevel = (TextView) mView.findViewById(R.id.rainfallData);
         sevenDayLevel = (TextView) mView.findViewById(R.id.sevenDayData);
         twoWeekLevel = (TextView) mView.findViewById(R.id.twoWeekData);
         oneMonthLevel = (TextView) mView.findViewById(R.id.oneMonthData);
@@ -103,7 +101,6 @@ public class AdvancedFragment extends Fragment {
             riverLevel.setText(parts[1] + "." + parts[2] + "m");
             tempLevel.setText(parts[3] + " C");
             tidalLevel.setText(parts[4] + "." + parts[5] + "m");
-            rainLevel.setText(parts[6]);
             sevenDayLevel.setText(parts[7] + "%");
             twoWeekLevel.setText(parts[8] + "%");
             oneMonthLevel.setText(parts[9] + "%");
